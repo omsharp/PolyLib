@@ -41,17 +41,19 @@ namespace Core
          }
       }
 
+      #region Teraniery
+
+      public static Polynomial operator -(Polynomial p) => p * -1;
+
+      #endregion
+
       #region Addition Operator Overload
 
-      public static Polynomial operator +(Polynomial p, double n)
-      {
-         return p + new Polynomial(new Term(n, 0));
-      }
+      public static Polynomial operator +(Polynomial p, double n) => p + new Polynomial(new Term(n, 0));
+      public static Polynomial operator +(double n, Polynomial p) => p + new Polynomial(new Term(n, 0));
 
-      public static Polynomial operator +(Polynomial p, Term t)
-      {
-         return p + new Polynomial(t);
-      }
+      public static Polynomial operator +(Term t, Polynomial p) => p + new Polynomial(t);
+      public static Polynomial operator +(Polynomial p, Term t) => p + new Polynomial(t);
 
       public static Polynomial operator +(Polynomial p1, Polynomial p2)
       {
@@ -68,24 +70,19 @@ namespace Core
 
       #region Subtraction Operator Overload
 
-      public static Polynomial operator -(Polynomial p, double n)
-      {
-         return p + (-n);
-      }
-      
-      public static Polynomial operator -(Polynomial p, Term t)
-      {
-         return p + (new Term(-t.Coefficient, t.Degree));
-      }
+      public static Polynomial operator -(Polynomial p, double n) => p + (-n);
+      public static Polynomial operator -(double n, Polynomial p) => p + (-n);
 
-      public static Polynomial operator -(Polynomial p1, Polynomial p2)
-      {
-         return p1 + (p2 * -1);
-      }
+      public static Polynomial operator -(Polynomial p, Term t) => p + (new Term(-t.Coefficient, t.Degree));
+      public static Polynomial operator -(Term t, Polynomial p) => p + (new Term(-t.Coefficient, t.Degree));
+
+      public static Polynomial operator -(Polynomial p1, Polynomial p2) => p1 + (-p2);
 
       #endregion
 
       #region Multiplication Operator Overload
+
+      public static Polynomial operator *(double n, Polynomial p) => p * n;
 
       public static Polynomial operator *(Polynomial p, double n)
       {
@@ -95,6 +92,8 @@ namespace Core
          return p * new Term(n, 0);
       }
 
+      public static Polynomial operator *(Term t, Polynomial p) => p * t;
+      
       public static Polynomial operator *(Polynomial p, Term t)
       {
          if (!(Math.Abs(t.Coefficient) > 0))
