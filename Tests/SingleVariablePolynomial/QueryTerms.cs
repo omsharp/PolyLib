@@ -24,11 +24,10 @@ namespace Tests.SingleVariablePolynomial
          var p = new Polynomial(new Term(2, 4),  //! 2x^4
                                 new Term(7, 2));  //! 7x^2
 
-         var d = 3;
-         var t = p[d];
+         var t = p[3];
 
          Assert.Equal(0, t.Coefficient);
-         Assert.Equal(d, t.Degree);
+         Assert.Equal(3, t.Degree);
       }
 
       [Fact]
@@ -38,6 +37,15 @@ namespace Tests.SingleVariablePolynomial
                                 new Term(7, 2));  //! 7x^2
 
          Assert.Throws<DegreeOutOfRangeException>(() => p[5]);
+      }
+
+      [Fact]
+      public void GetTermOfDegree_NegativeDegree()
+      {
+         var p = new Polynomial(new Term(2, 3),  //! 2x^3
+                                new Term(7, 2));  //! 7x^2
+
+         Assert.Throws<DegreeOutOfRangeException>(() => p[-2]);
       }
    }
 }

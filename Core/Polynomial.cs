@@ -4,10 +4,6 @@ using System.Linq;
 
 namespace Core
 {
-   public class DegreeOutOfRangeException : Exception
-   {
-   }
-
    public class Polynomial
    {
       private readonly List<Term> terms = new List<Term>();
@@ -34,14 +30,14 @@ namespace Core
       {
          get
          {
-            if (degree > Degree)
+            if (degree < 0 || degree > Degree)
                throw new DegreeOutOfRangeException();
 
             return terms.SingleOrDefault(t => t.Degree == degree) ?? new Term(0, degree);
          }
       }
 
-      #region Teraniery
+      #region Negation Operator Overload
 
       public static Polynomial operator -(Polynomial p) => p * -1;
 
@@ -86,29 +82,29 @@ namespace Core
 
       public static Polynomial operator *(Polynomial p, double n)
       {
-         if (!(Math.Abs(n) > 0))
+         if (n == 0)
             return new Polynomial();
 
          return p * new Term(n, 0);
       }
 
       public static Polynomial operator *(Term t, Polynomial p) => p * t;
-      
+
       public static Polynomial operator *(Polynomial p, Term t)
       {
-         if (!(Math.Abs(t.Coefficient) > 0))
+         if (t.Coefficient == 0)
             return new Polynomial();
 
          return new Polynomial(
             p.terms
-             .Where(pt => Math.Abs(pt.Coefficient) > 0)
+             .Where(pt => pt.Coefficient > 0)
              .Select(pt => new Term(pt.Coefficient * t.Coefficient, pt.Degree + t.Degree))
              .ToArray());
       }
 
       public static Polynomial operator *(Polynomial p1, Polynomial p2)
       {
-         if (!(Math.Abs(p1.Degree) > 0) || !(Math.Abs(p2.Degree) > 0))
+         if (p1.Degree == 0 || p2.Degree == 0)
             return new Polynomial();
 
          var result = new Polynomial();

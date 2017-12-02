@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DegreeOutOfRangeException.cs" />
     <Compile Include="Polynomial.cs" />
     <Compile Include="Term.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
