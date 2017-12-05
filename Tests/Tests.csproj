@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MultiVariable\Construction.cs" />
     <Compile Include="SingleVariable\Addition\AddingPolynomial.cs" />
     <Compile Include="SingleVariable\Addition\AddingTerm.cs" />
     <Compile Include="SingleVariable\Construction.cs" />

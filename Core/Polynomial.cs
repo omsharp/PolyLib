@@ -14,13 +14,22 @@ namespace PolyLib.Core
       public int Degree { get { return terms.Any() ? terms.Max(t => t.Degree) : 0; } }
 
       private Polynomial()
-      {
-      }
+      { }
 
-      public Polynomial(params Term[] terms)
+      public Polynomial(params Term[] trms)
       {
-         //? Might need to make sure all are simplified with no zero coefficients
-         this.terms.AddRange(terms.OrderByDescending(t => t.Degree));
+         foreach (var term in trms)
+         {
+            if (terms.SingleOrDefault(t => t.SimilarTo(term)) is Term same)
+            {
+               terms.Remove(same);
+               terms.Add(new Term(same.Coefficient + term.Coefficient, term.Variables));
+            }
+            else
+            {
+               terms.Add(term);
+            }
+         }
       }
 
       /// <summary>
