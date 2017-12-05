@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Core
+namespace PolyLib.Core
 {
    public class Polynomial
    {
@@ -20,7 +20,7 @@ namespace Core
       public Polynomial(params Term[] terms)
       {
          //? Might need to make sure all are simplified with no zero coefficients
-         this.terms.AddRange(terms);
+         this.terms.AddRange(terms.OrderByDescending(t => t.Degree));
       }
 
       /// <summary>
@@ -96,10 +96,10 @@ namespace Core
             return new Polynomial();
 
          return new Polynomial(
-            p.terms
-             .Where(pt => pt.Coefficient > 0)
-             .Select(pt => new Term(pt.Coefficient * t.Coefficient, pt.Degree + t.Degree))
-             .ToArray());
+                           p.terms
+                            .Where(pt => pt.Coefficient > 0)
+                            .Select(pt => new Term(pt.Coefficient * t.Coefficient, pt.Degree + t.Degree))
+                            .ToArray());
       }
 
       public static Polynomial operator *(Polynomial p1, Polynomial p2)

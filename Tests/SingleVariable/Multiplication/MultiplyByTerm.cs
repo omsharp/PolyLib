@@ -1,7 +1,7 @@
-﻿using Core;
+﻿using PolyLib.Core;
 using Xunit;
 
-namespace Tests.SingleVariablePolynomial
+namespace Tests.SingleVariable
 {
    public class MultiplybyTerm
    {

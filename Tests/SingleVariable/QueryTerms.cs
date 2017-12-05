@@ -1,7 +1,7 @@
 ﻿using Xunit;
-using Core;
+using PolyLib.Core;
 
-namespace Tests.SingleVariablePolynomial
+namespace Tests.SingleVariable
 {
    public class QueryTerms
    {

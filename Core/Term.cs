@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Core
+namespace PolyLib.Core
 {
    public class Term
    {
@@ -23,6 +23,17 @@ namespace Core
 
          Coefficient = coefficient;
          Variables = new[] { new Variable('x', degree) };
+      }
+
+      /// <summary>
+      /// Creates a  multi-variable Term. 
+      /// </summary>
+      /// <param name="coefficient">Coefficient of the terms.</param>
+      /// <param name="variables">A list of variables.</param>
+      public Term(int coefficient, params Variable[] variables)
+      {
+         Coefficient = coefficient;
+         Variables = variables.Where(v => v.Exponent > 0).ToArray();
       }
    }
 }

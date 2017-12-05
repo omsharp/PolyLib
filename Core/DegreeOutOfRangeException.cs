@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Core
+namespace PolyLib.Core
 {
    public class DegreeOutOfRangeException : Exception
    {

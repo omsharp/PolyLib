@@ -63,17 +63,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SingleVariablePolynomial\Addition\AddingPolynomial.cs" />
-    <Compile Include="SingleVariablePolynomial\Addition\AddingTerm.cs" />
-    <Compile Include="SingleVariablePolynomial\Construction.cs" />
-    <Compile Include="SingleVariablePolynomial\Addition\AddingConstant.cs" />
-    <Compile Include="SingleVariablePolynomial\Multiplication\MultiplyByPolynomial.cs" />
-    <Compile Include="SingleVariablePolynomial\Multiplication\MultiplyByTerm.cs" />
-    <Compile Include="SingleVariablePolynomial\Multiplication\MultiplyByConstant.cs" />
-    <Compile Include="SingleVariablePolynomial\Subtraction\SubtractPolynomial.cs" />
-    <Compile Include="SingleVariablePolynomial\Subtraction\SubtractTerm.cs" />
-    <Compile Include="SingleVariablePolynomial\Subtraction\SubtractConstant.cs" />
-    <Compile Include="SingleVariablePolynomial\QueryTerms.cs" />
+    <Compile Include="SingleVariable\Addition\AddingPolynomial.cs" />
+    <Compile Include="SingleVariable\Addition\AddingTerm.cs" />
+    <Compile Include="SingleVariable\Construction.cs" />
+    <Compile Include="SingleVariable\Addition\AddingConstant.cs" />
+    <Compile Include="SingleVariable\Multiplication\MultiplyByPolynomial.cs" />
+    <Compile Include="SingleVariable\Multiplication\MultiplyByTerm.cs" />
+    <Compile Include="SingleVariable\Multiplication\MultiplyByConstant.cs" />
+    <Compile Include="SingleVariable\QueryDegree.cs" />
+    <Compile Include="SingleVariable\Subtraction\SubtractPolynomial.cs" />
+    <Compile Include="SingleVariable\Subtraction\SubtractTerm.cs" />
+    <Compile Include="SingleVariable\Subtraction\SubtractConstant.cs" />
+    <Compile Include="SingleVariable\QueryTerms.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Term\TermCreation.cs" />
   </ItemGroup>

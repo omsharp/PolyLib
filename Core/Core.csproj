@@ -7,8 +7,8 @@
     <ProjectGuid>{2D4CFA24-74CB-469B-B31D-51A4783498D5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Core</RootNamespace>
-    <AssemblyName>Core</AssemblyName>
+    <RootNamespace>PolyLib.Core</RootNamespace>
+    <AssemblyName>PolyLib.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
