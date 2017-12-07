@@ -19,12 +19,15 @@ namespace Tests.SingleVariable
       [Fact]
       public void CreatePolynomial_Simplify()
       {
-         var p = new Polynomial(new Term(2, 2),    //! 2x^4
-                                new Term(7, 2),    //! 7x^2
+         var c1 = 2;
+         var c2 = 7;
+         var p = new Polynomial(new Term(c1, 2),    //! 2x^2
+                                new Term(c2, 2),    //! 7x^2
                                 new Term(23, 1),   //! 23x
                                 new Term(-8, 0));  //! -8;
 
          Assert.Equal(3, p.TermsCount);
+         Assert.Equal(c1 + c2, p[2].Coefficient);
       }
    }
 }

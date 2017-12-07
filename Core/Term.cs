@@ -35,9 +35,9 @@ namespace PolyLib.Core
 
          foreach (var variable in term.Variables)
          {
-            var found = Variables.Any(v => v.Symbol == variable.Symbol
-                                               && v.Exponent == variable.Exponent);
-            if (!found)
+            var s = variable.Symbol;
+            var e = variable.Exponent;
+            if (!Variables.Any(v => v.Symbol == s && v.Exponent == e))
                return false;
          }
 
