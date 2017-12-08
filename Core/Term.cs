@@ -14,8 +14,6 @@ namespace PolyLib.Core
       /// <summary>
       /// Creates a  single variable Term of the form a(x^n)  |  (a = coefficient, n = degree)
       /// </summary>
-      /// <param name="coefficient">a</param>
-      /// <param name="degree">n</param>
       public Term(double coefficient, int degree)
       {
          if (degree < 0)
@@ -26,10 +24,8 @@ namespace PolyLib.Core
       }
 
       /// <summary>
-      /// Creates a  multi-variable Term. 
+      /// Creates a  multi-variable Term with the given variables. 
       /// </summary>
-      /// <param name="coefficient">Coefficient of the terms.</param>
-      /// <param name="variables">A list of variables.</param>
       public Term(double coefficient, params Variable[] variables)
       {
          Coefficient = coefficient;
@@ -41,14 +37,12 @@ namespace PolyLib.Core
       /// </summary>
       public bool SimilarTo(Term term)
       {
-         if (term.Variables.Count() != Variables.Count())
+         if (term.Variables.Length != Variables.Length)
             return false;
 
-         foreach (var variable in term.Variables)
+         foreach (var v1 in term.Variables)
          {
-            var s = variable.Symbol;
-            var e = variable.Exponent;
-            if (!Variables.Any(v => v.Symbol == s && v.Exponent == e))
+            if (!Variables.Any(v2 => v2.Symbol == v1.Symbol && v2.Exponent == v1.Exponent))
                return false;
          }
 
