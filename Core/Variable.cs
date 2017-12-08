@@ -12,7 +12,7 @@ namespace PolyLib.Core
          if (exponent < 0)
             throw new ArgumentException("exponent must be a non-negative integer.");
 
-         if (symbol == ' ')
+         if (symbol == ' ') //? Make sure symbol is alphabet
             throw new ArgumentException("symbol can't be empty.");
 
          Symbol = symbol;

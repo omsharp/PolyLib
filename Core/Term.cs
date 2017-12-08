@@ -43,7 +43,7 @@ namespace PolyLib.Core
 
          foreach (var v1 in term.Variables)
          {
-            if (!Variables.Any(v2 => v1.SimilarTo(v2)))
+            if (!Variables.Any(v2 => v2.SimilarTo(v1)))
                return false;
          }
 
@@ -53,20 +53,12 @@ namespace PolyLib.Core
       public override string ToString()
       {
          var sb = new StringBuilder();
+         
+         sb.Append(Coefficient.ToString());
 
-         foreach (var v in Variables)
-         {
-            if (v.Exponent > 0)
-               sb.Append("+");
-            else
-               sb.Append("-");
-
+         foreach(var v in Variables)
             sb.Append(v.ToString());
-            sb.Append(" ");
-
-            sb.Remove(0, 1); // Remove the first sign.
-         }
-
+         
          return sb.ToString();
       }
    }
