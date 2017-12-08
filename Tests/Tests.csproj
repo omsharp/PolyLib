@@ -78,6 +78,7 @@
     <Compile Include="SingleVariable\Subtraction\SubtractConstant.cs" />
     <Compile Include="SingleVariable\QueryTerms.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Term\SimilarTo.cs" />
     <Compile Include="Term\TermCreation.cs" />
   </ItemGroup>
   <ItemGroup>

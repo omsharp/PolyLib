@@ -18,5 +18,15 @@ namespace PolyLib.Core
          Symbol = symbol;
          Exponent = exponent;
       }
+
+      public bool SimilarTo(Variable variable)
+      {
+         return variable.Symbol == Symbol && variable.Exponent == Exponent;
+      }
+
+      public override string ToString()
+      {
+         return $"{Symbol}^{Exponent}";
+      }
    }
 }

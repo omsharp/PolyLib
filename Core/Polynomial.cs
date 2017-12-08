@@ -19,18 +19,18 @@ namespace PolyLib.Core
       {
          foreach (var term in trms)
          {
-            if (terms.SingleOrDefault(t => t.SimilarTo(term)) is Term same)
+            if (this.terms.SingleOrDefault(t => t.SimilarTo(term)) is Term same)
             {
-               terms.Remove(same);
-               terms.Add(new Term(same.Coefficient + term.Coefficient, term.Variables));
+               this.terms.Remove(same);
+               this.terms.Add(new Term(same.Coefficient + term.Coefficient, term.Variables));
             }
             else
             {
-               terms.Add(term);
+               this.terms.Add(term);
             }
          }
       }
-      
+
       /// <summary>
       /// Returns an array of all terms of a given degree in this polynomial.
       /// </summary>

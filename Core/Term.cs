@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
 
 namespace PolyLib.Core
 {
@@ -42,11 +43,31 @@ namespace PolyLib.Core
 
          foreach (var v1 in term.Variables)
          {
-            if (!Variables.Any(v2 => v2.Symbol == v1.Symbol && v2.Exponent == v1.Exponent))
+            if (!Variables.Any(v2 => v1.SimilarTo(v2)))
                return false;
          }
 
          return true;
+      }
+
+      public override string ToString()
+      {
+         var sb = new StringBuilder();
+
+         foreach (var v in Variables)
+         {
+            if (v.Exponent > 0)
+               sb.Append("+");
+            else
+               sb.Append("-");
+
+            sb.Append(v.ToString());
+            sb.Append(" ");
+
+            sb.Remove(0, 1); // Remove the first sign.
+         }
+
+         return sb.ToString();
       }
    }
 }

@@ -28,6 +28,7 @@ namespace Tests.MultiVariable
          );
 
          Assert.Equal(c1 + c2, p.TermsOfDegree(xe + ye)[0].Coefficient);
+         Assert.Equal(7, p.TermsOfDegree(2)[0].Coefficient);
       }
 
       [Fact]
@@ -46,8 +47,6 @@ namespace Tests.MultiVariable
 
                new Term(c2, new Variable('x', e2),
                            new Variable('y', e1)),
-
-               new Term(7, new Variable('x', 2)),
             }
          );
 
