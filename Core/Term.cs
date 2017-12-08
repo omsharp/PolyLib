@@ -26,6 +26,17 @@ namespace PolyLib.Core
       }
 
       /// <summary>
+      /// Creates a  multi-variable Term. 
+      /// </summary>
+      /// <param name="coefficient">Coefficient of the terms.</param>
+      /// <param name="variables">A list of variables.</param>
+      public Term(double coefficient, params Variable[] variables)
+      {
+         Coefficient = coefficient;
+         Variables = variables.Where(v => v.Exponent > 0).ToArray();
+      }
+
+      /// <summary>
       /// Returns true if the passed term is similar, otherwise returns false.
       /// </summary>
       public bool SimilarTo(Term term)
@@ -42,17 +53,6 @@ namespace PolyLib.Core
          }
 
          return true;
-      }
-
-      /// <summary>
-      /// Creates a  multi-variable Term. 
-      /// </summary>
-      /// <param name="coefficient">Coefficient of the terms.</param>
-      /// <param name="variables">A list of variables.</param>
-      public Term(double coefficient, params Variable[] variables)
-      {
-         Coefficient = coefficient;
-         Variables = variables.Where(v => v.Exponent > 0).ToArray();
       }
    }
 }

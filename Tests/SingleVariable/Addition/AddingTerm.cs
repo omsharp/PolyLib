@@ -16,7 +16,7 @@ namespace Tests.SingleVariable
          var result = p + t;
 
          Assert.Equal(2, result.TermsCount);
-         Assert.Equal(11, result[4].Coefficient);
+         Assert.Equal(11, result.TermsOfDegree(4)[0].Coefficient);
       }
 
       [Fact]
@@ -30,7 +30,7 @@ namespace Tests.SingleVariable
          var result = p + t;
 
          Assert.Equal(3, result.TermsCount);
-         Assert.Equal(9, result[3].Coefficient);
+         Assert.Equal(9, result.TermsOfDegree(3)[0].Coefficient);
       }
    }
 }

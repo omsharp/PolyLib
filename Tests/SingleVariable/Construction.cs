@@ -27,7 +27,7 @@ namespace Tests.SingleVariable
                                 new Term(-8, 0));  //! -8;
 
          Assert.Equal(3, p.TermsCount);
-         Assert.Equal(c1 + c2, p[2].Coefficient);
+         Assert.Equal(c1 + c2, p.TermsOfDegree(2)[0].Coefficient);
       }
    }
 }

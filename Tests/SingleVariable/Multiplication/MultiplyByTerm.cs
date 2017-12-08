@@ -26,8 +26,8 @@ namespace Tests.SingleVariable
 
          Assert.Equal(2, result.TermsCount);
 
-         Assert.Equal(expectedCo1, result[expectedDeg1].Coefficient);
-         Assert.Equal(expectedCo2, result[expectedDeg2].Coefficient);
+         Assert.Equal(expectedCo1, result.TermsOfDegree(expectedDeg1)[0].Coefficient);
+         Assert.Equal(expectedCo2, result.TermsOfDegree(expectedDeg2)[0].Coefficient);
       }
 
       [Fact]

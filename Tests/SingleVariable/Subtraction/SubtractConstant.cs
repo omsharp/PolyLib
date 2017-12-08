@@ -17,7 +17,7 @@ namespace Tests.SingleVariable
          var result = p - constant;
 
          Assert.Equal(3, result.TermsCount);
-         Assert.Equal(expected, result[0].Coefficient);
+         Assert.Equal(expected, result.TermsOfDegree(0)[0].Coefficient);
       }
 
       [Fact]
@@ -35,7 +35,7 @@ namespace Tests.SingleVariable
          var expectedCo = oldConstant - newConstant;
 
          Assert.Equal(3, result.TermsCount);
-         Assert.Equal(expectedCo, result[0].Coefficient);
+         Assert.Equal(expectedCo, result.TermsOfDegree(0)[0].Coefficient);
       }
 
       [Fact]
@@ -53,7 +53,7 @@ namespace Tests.SingleVariable
          var expectedCo = oldConstant - newConstant;
 
          Assert.Equal(3, result.TermsCount);
-         Assert.Equal(expectedCo, result[0].Coefficient);
+         Assert.Equal(expectedCo, result.TermsOfDegree(0)[0].Coefficient);
       }
 
       [Fact]
@@ -67,7 +67,7 @@ namespace Tests.SingleVariable
          var result = p - newConstant;
 
          Assert.Equal(2, result.TermsCount);
-         Assert.Equal(0, result[0].Coefficient);
+         Assert.Equal(0, result.TermsOfDegree(0)[0].Coefficient);
       }
    }
 }

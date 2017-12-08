@@ -10,7 +10,6 @@ namespace PolyLib.Core
 
       public int TermsCount { get { return terms.Count; } }
 
-      //? Will have to change this when we support multi-variable polynomials
       public int Degree { get { return terms.Any() ? terms.Max(t => t.Degree) : 0; } }
 
       private Polynomial()
@@ -31,19 +30,18 @@ namespace PolyLib.Core
             }
          }
       }
-
+      
       /// <summary>
-      ///  Returns the Term at a given degree.
+      /// Returns an array of all terms of a given degree in this polynomial.
       /// </summary>
-      public Term this[int degree]
+      public Term[] TermsOfDegree(int degree)
       {
-         get
-         {
-            if (degree < 0 || degree > Degree)
-               throw new DegreeOutOfRangeException();
+         if (degree < 0 || degree > Degree)
+            throw new DegreeOutOfRangeException();
 
-            return terms.SingleOrDefault(t => t.Degree == degree) ?? new Term(0, degree);
-         }
+         var ts = terms.Where(t => t.Degree == degree).ToArray();
+
+         return ts.Any() ? ts : new[] { new Term(0, degree) };
       }
 
       #region Negation Operator Overload

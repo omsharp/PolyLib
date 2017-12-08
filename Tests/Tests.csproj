@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MultiVariable\Construction.cs" />
+    <Compile Include="MultiVariable\QueryTerms.cs" />
     <Compile Include="SingleVariable\Addition\AddingPolynomial.cs" />
     <Compile Include="SingleVariable\Addition\AddingTerm.cs" />
     <Compile Include="SingleVariable\Construction.cs" />

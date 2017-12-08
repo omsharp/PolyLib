@@ -16,7 +16,7 @@ namespace Tests.SingleVariable
          var result = m + p;
 
          Assert.Equal(2, result.TermsCount);
-         Assert.Equal(11, result[4].Coefficient);
+         Assert.Equal(11, result.TermsOfDegree(4)[0].Coefficient);
       }
 
       [Fact]
@@ -30,7 +30,7 @@ namespace Tests.SingleVariable
          var result = m + p;
 
          Assert.Equal(3, result.TermsCount);
-         Assert.Equal(9, result[3].Coefficient);
+         Assert.Equal(9, result.TermsOfDegree(3)[0].Coefficient);
       }
 
       [Fact]
@@ -49,11 +49,11 @@ namespace Tests.SingleVariable
 
          Assert.Equal(5, p3.TermsCount);
 
-         Assert.Equal(co4, p3[4].Coefficient);
-         Assert.Equal(co3, p3[3].Coefficient);
-         Assert.Equal(co2, p3[2].Coefficient);
-         Assert.Equal(co1, p3[1].Coefficient);
-         Assert.Equal(co0, p3[0].Coefficient);
+         Assert.Equal(co4, p3.TermsOfDegree(4)[0].Coefficient);
+         Assert.Equal(co3, p3.TermsOfDegree(3)[0].Coefficient);
+         Assert.Equal(co2, p3.TermsOfDegree(2)[0].Coefficient);
+         Assert.Equal(co1, p3.TermsOfDegree(1)[0].Coefficient);
+         Assert.Equal(co0, p3.TermsOfDegree(0)[0].Coefficient);
       }
 
       [Fact]
@@ -77,11 +77,11 @@ namespace Tests.SingleVariable
 
          Assert.Equal(5, p3.TermsCount);
 
-         Assert.Equal(co4, p3[4].Coefficient);
-         Assert.Equal(co3, p3[3].Coefficient);
-         Assert.Equal(co2, p3[2].Coefficient);
-         Assert.Equal(co1, p3[1].Coefficient);
-         Assert.Equal(co0, p3[0].Coefficient);
+         Assert.Equal(co4, p3.TermsOfDegree(4)[0].Coefficient);
+         Assert.Equal(co3, p3.TermsOfDegree(3)[0].Coefficient);
+         Assert.Equal(co2, p3.TermsOfDegree(2)[0].Coefficient);
+         Assert.Equal(co1, p3.TermsOfDegree(1)[0].Coefficient);
+         Assert.Equal(co0, p3.TermsOfDegree(0)[0].Coefficient);
       }
    }
 }
